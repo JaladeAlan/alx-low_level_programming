@@ -1,23 +1,48 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
-
-void generatePassword(int len) {
-   char possibleChars[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()";
-   char password[len+1];
-   
-   srand(time(0)); // seed for random number generation
-   for(int i = 0; i < len; i++) {
-      int randomIndex = rand() % (sizeof(possibleChars) - 1);
-      password[i] = possibleChars[randomIndex];
-   }
-   
-   password[len] = '\0'; // null terminate the string
-   printf("The randomly generated password is: %s\n", password);
+/**
+ * checksum - executes checksum
+ * @s: input char
+ * Return: checksum
+ */
+unsigned long checksum(char *s)
+{
+unsigned long sum = 0;
+while (*s != 0)
+{
+	sum += *s;
+	s++;
 }
+return (sum);
+}
+/**
+ * main - prints password for crakme
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQSTUVWXYZ";
+	char s[33];
+	unsigned long sum;
+	int i, flag = 0;
 
-int main() {
-   int len = 10; // desired length of password
-   generatePassword(len);
-   return 0;
+	srand(time(NULL));
+	while (flag == 0)
+	{
+		for (i = 0; i < 33; i++)
+		{
+			s[i] = alpha[rand() % (sizeof(alpha) - 1)];
+		}
+		s[i] = '\0';
+		sum = checksum(s);
+		if (sum == 2772)
+		{
+			flag = 1;
+			printf("%s", s);
+		}
+	}
+return (0);
 }
