@@ -8,3 +8,4 @@
 #7: a function that prints half of a string
 #8: function that prints n elements of an array of integers
 #9: function that copies the string pointed to by src, including the terminating null byte
+#100: function that convert a string to an integer
