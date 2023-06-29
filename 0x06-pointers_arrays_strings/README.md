@@ -1,3 +1,5 @@
 0: function that concatenates two strings
 1: function that concatenates two strings,  at most n bytes from src. 
-3: function that copies a string.
+2: function that copies a string
+3: function that compares two strings
+4: function that reverses the content of an array of integers.
