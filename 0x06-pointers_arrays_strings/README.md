@@ -7,3 +7,5 @@
 6: function that capitalizes all words of a string
 7: function that encodes a string into 1337.
 8: function that encodes a string using rot13.
+11: function that adds two numbers.
+12: function that prints a buffer.
