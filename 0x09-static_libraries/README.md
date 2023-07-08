@@ -1,1 +1,1 @@
-tatic libraries
+static library libmy.a
